@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="novemob.LoginPage" Title="Login de Teste" BackgroundColor="Green" >
+	<ContentPage.Content>
+		<StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+				Padding="5">
+			<Entry x:Name="txtLogin" WidthRequest="300" HeightRequest="50" Placeholder="Digite o usuário" 
+				PlaceholderColor="Blue" BackgroundColor="Silver" TextColor="Purple" />
+			
+			<Entry x:Name="txtSenha" WidthRequest="300" HeightRequest="50" Placeholder="Digite a senha" 
+				PlaceholderColor="Aqua" BackgroundColor="Red" TextColor="White" IsPassword="true" />
+
+			<StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand" BackgroundColor="White">
+				
+				<Button x:Name="btnLogin" Text="Entrar" Clicked="Handle_Clicked" BackgroundColor="Blue" TextColor="Aqua" WidthRequest="150"/>
+
+				<Button x:Name="btnRecPas" Text="Recuperar" Clicked="Rec_Clicked" BackgroundColor="Aqua" TextColor="Blue" WidthRequest="150"/>
+				
+			</StackLayout>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

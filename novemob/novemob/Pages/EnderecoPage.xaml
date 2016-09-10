@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="novemob.EnderecoPage"
+		BackgroundColor="Gray" Title="Endereço">
+	<ContentPage.Content>
+		<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+			
+			<Entry x:Name="txtCep" WidthRequest="300" Placeholder="CEP" Keyboard="Numeric" Unfocused="BuscaCEP_Unfocused"/>
+
+			<Entry x:Name="txtLogradouro" WidthRequest="300" Placeholder="Logradouro" IsEnabled="false" />
+
+			<Entry x:Name="txtComplemento" WidthRequest="300" Placeholder="Complemento" Keyboard="Text" IsEnabled="false" />
+
+			<Entry x:Name="txtBairro" WidthRequest="300" Placeholder="Bairro" Keyboard="Text" IsEnabled="false" />
+
+			<Entry x:Name="txtCidade" WidthRequest="300" Placeholder="Cidade" Keyboard="Text" IsEnabled="false" />
+
+			<Entry x:Name="txtEstado" WidthRequest="300" Placeholder="Estado" Keyboard="Text" IsEnabled="false" />
+
+			<Entry x:Name="txtNumero" WidthRequest="300" Placeholder="Numero" Keyboard="Text" />
+			
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
