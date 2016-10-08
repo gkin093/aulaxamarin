@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="novemob.MainPage"
+		x:Title="Pessoas"
+		x:Name="MainPage"
+		xmlns:local="crl-namespace:novemob">
+	<ScrollView Orientation="Vertical">
+		<StackLayout Padding="15">
+			<Entry Placeholder="Nome" Text="{Binding FirstName}" />
+			<Entry Placeholder="Nome" Text="{Binding LastName}" />
+			<Entry Placeholder="Nome" Text="{Binding Age}" Keyboard="Numeric" />
+			<Picker Title="Selecione" SelectedIndex="{Binding GenderIndex}">
+				<Picker.Items>
+					<x:String>Homem</x:String>
+					<x:String>Mulher</x:String>
+				</Picker.Items>
+			</Picker>
+			<Button Text="Add" TextColor="White" BackgroundColor="Purple" WidthRequest="200" Command="{Binding AddCommand}" />
+			<ListView ItemsSource="{Binding Records}" HeightRequest="200">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<TextCell Text="{Binding}">
+							<TextCell.ContextActions>
+								<MenuItem Text="Delete" IsDestructive="true" CommandParameter="{Binding .}" Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference Name=MainPage}}" />
+							</TextCell.ContextActions>
+						</TextCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+			<Button Text="Excluir Tudo" TextColor="White" BackgroundColor="Red" Command="{Binding DeleteAllCommand}" />
+			<Button Text="30+" TextColor="White" BackgroundColor="Yellow" Command="{Binding AgeFilterCommand}" CommandParameter="30" />
+			<Button Text="Homem" TextColor="White" BackgroundColor="Aqua" Command="{Binding GenderCommand}" CommandParameter="Homem" />
+			<Button Text="Mulher" TextColor="White" BackgroundColor="Fuchsia" Command="{Binding GenderCommand}" CommandParameter="Mulher" />
+			
+		</StackLayout>
+	</ScrollView>
+</ContentPage>

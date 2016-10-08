@@ -67,12 +67,6 @@ namespace novemob
 			//definindo a exatidão da geolocalização
 			locator.DesiredAccuracy = 100;
 
-			//pegando a posição do usuário
-			var position = await locator.GetPositionAsync(1000);
-
-			string latitude = position.Latitude.ToString();
-			string longitude = position.Longitude.ToString();
-
 			//pegando as coordenadas do endereço
 			var localizacaoPossivel = await geoCoder.GetPositionsForAddressAsync(txtEndereco.Text);
 
@@ -81,6 +75,33 @@ namespace novemob
 				//escreve latitude e longitude na tela
 				lblLat.Text = posicao.Latitude.ToString();
 				lblLog.Text = posicao.Longitude.ToString();
+			}
+
+			//URL de serviço free sobre clima
+			string url = "http://api.geonames.org/findNearByWeatherJSON?lat={0}&lng={1}&username=deznetfiap";
+
+			//criando requisição rest
+			HttpClient cliente = new HttpClient();
+
+			//string com os parametros para a URL
+			var uri = new Uri(string.Format(url, new object[] { lblLat.Text, lblLog.Text}));
+
+			//fazendo um GET no serviço
+			var response = await cliente.GetAsync(uri);
+
+			//classe para deserializar o retorno
+			TempoResultModel tempo = new TempoResultModel();
+			//verificando se o status code é OK
+			if (response.IsSuccessStatusCode)
+			{
+				//pegando o retorno e lendo em async
+				var content = await response.Content.ReadAsStringAsync();
+				//deserializando o conteúdo para a classe result
+				tempo = JsonConvert.DeserializeObject<TempoResultModel>(content);
+
+				lblTemp.Text = tempo.weatherObservation.temperature;
+				lblLocalizacaoEstacao.Text = tempo.weatherObservation.stationName;
+
 			}
 
 			//marcar o pin no mapa
