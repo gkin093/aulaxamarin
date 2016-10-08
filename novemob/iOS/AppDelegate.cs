@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin;
 
 namespace novemob.iOS
 {
@@ -14,6 +15,7 @@ namespace novemob.iOS
 		{
 			global::Xamarin.Forms.Forms.Init();
 
+			FormsMaps.Init();
 			LoadApplication(new App());
 
 			return base.FinishedLaunching(app, options);

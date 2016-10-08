@@ -1,23 +1,27 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="novemob.EnderecoPage"
+		xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
 		BackgroundColor="Gray" Title="Endereço">
 	<ContentPage.Content>
-		<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-			
-			<Entry x:Name="txtCep" WidthRequest="300" Placeholder="CEP" Keyboard="Numeric" Unfocused="BuscaCEP_Unfocused"/>
+		<ScrollView Orientation="Vertical">
+			<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
 
-			<Entry x:Name="txtLogradouro" WidthRequest="300" Placeholder="Logradouro" IsEnabled="false" />
+				<maps:Map x:Name="map" WidthRequest="300" HeightRequest="300" IsShowingUser="true" />
 
-			<Entry x:Name="txtComplemento" WidthRequest="300" Placeholder="Complemento" Keyboard="Text" IsEnabled="false" />
-
-			<Entry x:Name="txtBairro" WidthRequest="300" Placeholder="Bairro" Keyboard="Text" IsEnabled="false" />
-
-			<Entry x:Name="txtCidade" WidthRequest="300" Placeholder="Cidade" Keyboard="Text" IsEnabled="false" />
-
-			<Entry x:Name="txtEstado" WidthRequest="300" Placeholder="Estado" Keyboard="Text" IsEnabled="false" />
-
-			<Entry x:Name="txtNumero" WidthRequest="300" Placeholder="Numero" Keyboard="Text" />
-			
-		</StackLayout>
+				<Entry x:Name="txtEndereco" WidthRequest="200" TextColor="Black" Unfocused="BuscaCoordenada_Unfocused"/>
+				<Label x:Name="lblLat" WidthRequest="200" TextColor="Black" />
+				<Label x:Name="lblLog" WidthRequest="200" TextColor="Black" />
+				<Label x:Name="lblEndereco" WidthRequest="200" TextColor="Black" />
+				
+				<Entry x:Name="txtCep" WidthRequest="300" Placeholder="CEP" Keyboard="Numeric" Unfocused="BuscaCEP_Unfocused"/>
+				<Entry x:Name="txtLogradouro" WidthRequest="300" Placeholder="Logradouro" IsEnabled="false" />
+				<Entry x:Name="txtComplemento" WidthRequest="300" Placeholder="Complemento" Keyboard="Text" IsEnabled="false" />
+				<Entry x:Name="txtBairro" WidthRequest="300" Placeholder="Bairro" Keyboard="Text" IsEnabled="false" />
+				<Entry x:Name="txtCidade" WidthRequest="300" Placeholder="Cidade" Keyboard="Text" IsEnabled="false" />
+				<Entry x:Name="txtEstado" WidthRequest="300" Placeholder="Estado" Keyboard="Text" IsEnabled="false" />
+				<Entry x:Name="txtNumero" WidthRequest="300" Placeholder="Numero" Keyboard="Text" />
+				
+			</StackLayout>
+		</ScrollView>
 	</ContentPage.Content>
 </ContentPage>
